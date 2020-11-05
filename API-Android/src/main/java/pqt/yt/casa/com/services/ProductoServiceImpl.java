@@ -1,0 +1,52 @@
+package pqt.yt.casa.com.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import pqt.yt.casa.com.entitys.Producto;
+import pqt.yt.casa.com.repository.ProductoRepository;
+
+@Service
+public class ProductoServiceImpl implements IProductoService{
+
+	
+	@Autowired
+	private ProductoRepository productoRepo;
+	
+	@Override
+	public List<Producto> listarProductos() {
+		
+		return (List<Producto>)productoRepo.findAll();
+	}
+
+	@Override
+	public void guardar(Producto producto) {
+	
+		productoRepo.save(producto);
+		
+	}
+
+	@Override
+	public Producto buscarPorID(Long id) {
+		
+		return productoRepo.findById(id).orElse(null);
+	}
+
+	@Override
+	public void Editar(Long id) {
+		
+		//falta aqui
+	}
+
+	@Override
+	public void eliminar(Long id) {
+         productoRepo.deleteById(id);;
+	}
+
+	
+
+	
+	
+}

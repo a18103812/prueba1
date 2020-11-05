@@ -1,0 +1,5 @@
+package pqt.yt.casa.com.services;
+
+public interface IProductoService {
+
+}
